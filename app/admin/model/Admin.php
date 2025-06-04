@@ -4,6 +4,9 @@ namespace app\admin\model;
 
 use think\Model;
 use think\facade\Db;
+use think\model\relation\BelongsTo;
+use app\admin\model\department\Jobs;
+use app\admin\model\department\Department;
 
 /**
  * Admin模型
@@ -73,5 +76,15 @@ class Admin extends Model
     public function resetPassword(int|string $uid, string $newPassword): int|Admin
     {
         return $this->where(['id' => $uid])->update(['password' => hash_password($newPassword), 'salt' => '']);
+    }
+
+    public function department(): BelongsTo
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function jobs(): BelongsTo
+    {
+        return $this->belongsTo(Jobs::class);
     }
 }

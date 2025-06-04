@@ -49,6 +49,14 @@ const baTable = new baTableClass(
             { label: t('auth.admin.username'), prop: 'username', align: 'center', operator: 'LIKE', operatorPlaceholder: t('Fuzzy query') },
             { label: t('auth.admin.nickname'), prop: 'nickname', align: 'center', operator: 'LIKE', operatorPlaceholder: t('Fuzzy query') },
             { label: t('auth.admin.group'), prop: 'group_name_arr', align: 'center', operator: false, render: 'tags' },
+            {
+                label: t('department.department.department'),
+                prop: 'department.name',
+                align: 'center',
+                operator: 'LIKE',
+                operatorPlaceholder: t('Fuzzy query'),
+            },
+            { label: t('department.jobs.jobs'), prop: 'jobs.name', align: 'center', operator: 'LIKE', operatorPlaceholder: t('Fuzzy query') },
             { label: t('auth.admin.avatar'), prop: 'avatar', align: 'center', render: 'image', operator: false },
             { label: t('auth.admin.email'), prop: 'email', align: 'center', operator: 'LIKE', operatorPlaceholder: t('Fuzzy query') },
             { label: t('auth.admin.mobile'), prop: 'mobile', align: 'center', operator: 'LIKE', operatorPlaceholder: t('Fuzzy query') },
@@ -91,7 +99,7 @@ const baTable = new baTableClass(
 provide('baTable', baTable)
 
 baTable.mount()
-baTable.getData()
+baTable.getIndex()
 </script>
 
 <style scoped lang="scss"></style>

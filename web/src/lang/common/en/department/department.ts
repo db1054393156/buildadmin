@@ -1,0 +1,16 @@
+export default {
+    id: 'id',
+    pid: 'pid',
+    name: 'name',
+    responsible: 'responsible',
+    phone: 'phone',
+    email: 'email',
+    status: 'status',
+    'status 0': 'status 0',
+    'status 1': 'status 1',
+    weigh: 'weigh',
+    createtime: 'createtime',
+    updatetime: 'updatetime',
+    'quick Search Fields': 'name',
+    department: 'department',
+}

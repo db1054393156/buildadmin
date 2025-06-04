@@ -20,6 +20,8 @@ class Admin extends Backend
 
     protected array|string $quickSearchField = ['username', 'nickname'];
 
+    protected array $withJoinTable = ['department', 'jobs'];
+
     /**
      * 开启数据限制
      */

@@ -55,6 +55,34 @@
                             placeholder: t('Click select'),
                         }"
                     />
+                    <FormItem
+                        :label="t('department.department.department')"
+                        v-model="baTable.form.items!.department_id"
+                        type="remoteSelect"
+                        :input-attr="{
+                            multiple: false,
+                            params: { isTree: true },
+                            field: 'name',
+                            remoteUrl: '/admin/department.department/index',
+                            placeholder: t('Click select'),
+                            emptyValues: ['', null, undefined, 0],
+                            valueOnClear: 0,
+                        }"
+                    />
+                    <FormItem
+                        :label="t('department.jobs.jobs')"
+                        v-model="baTable.form.items!.jobs_id"
+                        type="remoteSelect"
+                        :input-attr="{
+                            multiple: false,
+                            params: { isTree: true },
+                            field: 'name',
+                            remoteUrl: '/admin/department.jobs/index',
+                            placeholder: t('Click select'),
+                            emptyValues: ['', null, undefined, 0],
+                            valueOnClear: 0,
+                        }"
+                    />
                     <FormItem :label="t('auth.admin.avatar')" type="image" v-model="baTable.form.items!.avatar" />
                     <FormItem
                         :label="t('auth.admin.email')"
@@ -115,18 +143,18 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, inject, watch, useTemplateRef } from 'vue'
+import { ref, reactive, inject, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type baTableClass from '/@/utils/baTable'
 import { regularPassword, buildValidatorData } from '/@/utils/validate'
-import type { FormItemRule } from 'element-plus'
+import type { FormInstance, FormItemRule } from 'element-plus'
 import FormItem from '/@/components/formItem/index.vue'
 import { useAdminInfo } from '/@/stores/adminInfo'
 import { useConfig } from '/@/stores/config'
 
 const config = useConfig()
 const adminInfo = useAdminInfo()
-const formRef = useTemplateRef('formRef')
+const formRef = ref<FormInstance>()
 const baTable = inject('baTable') as baTableClass
 
 const { t } = useI18n()

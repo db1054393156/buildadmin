@@ -10,7 +10,7 @@ export const useConfig = defineStore(
             // 全局
             showDrawer: false,
             shrink: false,
-            layoutMode: 'Default',
+            layoutMode: 'Classic',
             mainAnimation: 'slide-right',
             isDark: false,
 
